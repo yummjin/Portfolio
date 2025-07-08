@@ -1,5 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { Link, createFileRoute } from '@tanstack/react-router';
+import { PATH } from '@/shared/constants';
 
 export const Route = createFileRoute('/login')({
   component: RouteComponent,
@@ -18,9 +19,12 @@ function RouteComponent() {
           />
         </div>
         <span className='text-[48px] font-black md:text-[64px]'>yummmjin</span>
-        <button className='cursor-pointer rounded-full border-2 bg-black px-8 py-2 text-xl text-white transition duration-300 outline-none hover:border-gray-300 hover:bg-white hover:text-black'>
+        <Link
+          to={PATH.HOME}
+          className='cursor-pointer rounded-full border-2 bg-black px-8 py-2 text-xl text-white transition duration-300 outline-none hover:border-gray-300 hover:bg-white hover:text-black'
+        >
           시작하기
-        </button>
+        </Link>
         <p className='text-center text-4xl leading-tight'>
           작은 코드,
           <br />큰 가능성.
