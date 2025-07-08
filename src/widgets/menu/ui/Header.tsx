@@ -1,20 +1,20 @@
-import { Logo, MenuButton, PlusButton } from '@/assets/icons'
+import { Logo, MenuButton, PlusButton } from '@/assets/icons';
 
 export default function Header() {
   return (
-    <header className="w-screen h-[44px] absolute top-0 bg-gray-100/40 flex px-4 items-center justify-between">
-      <button className="text-2xl font-bold flex items-center gap-1 outline-none cursor-pointer">
-        <img src={Logo} alt="logo" className="size-6" />
+    <header className='sticky top-0 z-10 flex h-[44px] w-screen items-center justify-between bg-gray-100/40 px-4'>
+      <button className='flex cursor-pointer items-center gap-1 text-2xl font-bold outline-none'>
+        <img src={Logo} alt='logo' className='size-6' />
         yummmjin
       </button>
-      <div className="flex items-center gap-2">
-        <button className="size-[36px] grid place-items-center rounded-lg hover:bg-gray-100 outline-none cursor-pointer">
-          <img src={PlusButton} alt="plus" className="size-6" />
+      <div className='flex items-center gap-2'>
+        <button className='grid size-[36px] cursor-pointer place-items-center rounded-lg outline-none hover:bg-gray-100'>
+          <img src={PlusButton} alt='plus' className='size-6' />
         </button>
-        <button className="size-[36px] grid place-items-center rounded-lg hover:bg-gray-100 outline-none cursor-pointer">
-          <img src={MenuButton} alt="menu" className="size-6" />
+        <button className='grid size-[36px] cursor-pointer place-items-center rounded-lg outline-none hover:bg-gray-100'>
+          <img src={MenuButton} alt='menu' className='size-6' />
         </button>
       </div>
     </header>
-  )
+  );
 }
