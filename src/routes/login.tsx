@@ -1,12 +1,20 @@
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { Link, createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { PATH } from '@/shared/constants';
+import { setSession } from '@/shared/utils';
 
 export const Route = createFileRoute('/login')({
   component: RouteComponent,
 });
 
 function RouteComponent() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    setSession('isAuthenticated', 'true');
+    navigate({ to: PATH.HOME });
+  };
+
   return (
     <div className='grid size-full place-items-center'>
       <div className='flex flex-col items-center gap-8'>
@@ -19,12 +27,12 @@ function RouteComponent() {
           />
         </div>
         <span className='text-[48px] font-black md:text-[64px]'>yummmjin</span>
-        <Link
-          to={PATH.HOME}
+        <button
+          onClick={handleClick}
           className='cursor-pointer rounded-full border-2 bg-black px-8 py-2 text-xl text-white transition duration-300 outline-none hover:border-gray-300 hover:bg-white hover:text-black'
         >
           시작하기
-        </Link>
+        </button>
         <p className='text-center text-4xl leading-tight'>
           작은 코드,
           <br />큰 가능성.
