@@ -7,9 +7,7 @@ export const Route = createRootRoute({
     <>
       <div className='relative h-screen w-screen'>
         <Header />
-        <div className='absolute inset-0 m-auto h-full w-[80%] max-w-370'>
-          <Outlet />
-        </div>
+        <Outlet />
       </div>
       <TanStackRouterDevtools />
     </>
