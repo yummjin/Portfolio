@@ -10,11 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as DetailRouteImport } from './routes/detail'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DetailUserRouteImport } from './routes/detail/user'
+import { Route as DetailTechRouteImport } from './routes/detail/tech'
+import { Route as DetailProjectRouteImport } from './routes/detail/project'
+import { Route as DetailOrganizationRouteImport } from './routes/detail/organization'
+import { Route as DetailHackathonRouteImport } from './routes/detail/hackathon'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DetailRoute = DetailRouteImport.update({
+  id: '/detail',
+  path: '/detail',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,30 +33,99 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DetailUserRoute = DetailUserRouteImport.update({
+  id: '/user',
+  path: '/user',
+  getParentRoute: () => DetailRoute,
+} as any)
+const DetailTechRoute = DetailTechRouteImport.update({
+  id: '/tech',
+  path: '/tech',
+  getParentRoute: () => DetailRoute,
+} as any)
+const DetailProjectRoute = DetailProjectRouteImport.update({
+  id: '/project',
+  path: '/project',
+  getParentRoute: () => DetailRoute,
+} as any)
+const DetailOrganizationRoute = DetailOrganizationRouteImport.update({
+  id: '/organization',
+  path: '/organization',
+  getParentRoute: () => DetailRoute,
+} as any)
+const DetailHackathonRoute = DetailHackathonRouteImport.update({
+  id: '/hackathon',
+  path: '/hackathon',
+  getParentRoute: () => DetailRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/detail': typeof DetailRouteWithChildren
   '/login': typeof LoginRoute
+  '/detail/hackathon': typeof DetailHackathonRoute
+  '/detail/organization': typeof DetailOrganizationRoute
+  '/detail/project': typeof DetailProjectRoute
+  '/detail/tech': typeof DetailTechRoute
+  '/detail/user': typeof DetailUserRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/detail': typeof DetailRouteWithChildren
   '/login': typeof LoginRoute
+  '/detail/hackathon': typeof DetailHackathonRoute
+  '/detail/organization': typeof DetailOrganizationRoute
+  '/detail/project': typeof DetailProjectRoute
+  '/detail/tech': typeof DetailTechRoute
+  '/detail/user': typeof DetailUserRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/detail': typeof DetailRouteWithChildren
   '/login': typeof LoginRoute
+  '/detail/hackathon': typeof DetailHackathonRoute
+  '/detail/organization': typeof DetailOrganizationRoute
+  '/detail/project': typeof DetailProjectRoute
+  '/detail/tech': typeof DetailTechRoute
+  '/detail/user': typeof DetailUserRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login'
+  fullPaths:
+    | '/'
+    | '/detail'
+    | '/login'
+    | '/detail/hackathon'
+    | '/detail/organization'
+    | '/detail/project'
+    | '/detail/tech'
+    | '/detail/user'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login'
-  id: '__root__' | '/' | '/login'
+  to:
+    | '/'
+    | '/detail'
+    | '/login'
+    | '/detail/hackathon'
+    | '/detail/organization'
+    | '/detail/project'
+    | '/detail/tech'
+    | '/detail/user'
+  id:
+    | '__root__'
+    | '/'
+    | '/detail'
+    | '/login'
+    | '/detail/hackathon'
+    | '/detail/organization'
+    | '/detail/project'
+    | '/detail/tech'
+    | '/detail/user'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DetailRoute: typeof DetailRouteWithChildren
   LoginRoute: typeof LoginRoute
 }
 
@@ -58,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/detail': {
+      id: '/detail'
+      path: '/detail'
+      fullPath: '/detail'
+      preLoaderRoute: typeof DetailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -65,11 +152,66 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/detail/user': {
+      id: '/detail/user'
+      path: '/user'
+      fullPath: '/detail/user'
+      preLoaderRoute: typeof DetailUserRouteImport
+      parentRoute: typeof DetailRoute
+    }
+    '/detail/tech': {
+      id: '/detail/tech'
+      path: '/tech'
+      fullPath: '/detail/tech'
+      preLoaderRoute: typeof DetailTechRouteImport
+      parentRoute: typeof DetailRoute
+    }
+    '/detail/project': {
+      id: '/detail/project'
+      path: '/project'
+      fullPath: '/detail/project'
+      preLoaderRoute: typeof DetailProjectRouteImport
+      parentRoute: typeof DetailRoute
+    }
+    '/detail/organization': {
+      id: '/detail/organization'
+      path: '/organization'
+      fullPath: '/detail/organization'
+      preLoaderRoute: typeof DetailOrganizationRouteImport
+      parentRoute: typeof DetailRoute
+    }
+    '/detail/hackathon': {
+      id: '/detail/hackathon'
+      path: '/hackathon'
+      fullPath: '/detail/hackathon'
+      preLoaderRoute: typeof DetailHackathonRouteImport
+      parentRoute: typeof DetailRoute
+    }
   }
 }
 
+interface DetailRouteChildren {
+  DetailHackathonRoute: typeof DetailHackathonRoute
+  DetailOrganizationRoute: typeof DetailOrganizationRoute
+  DetailProjectRoute: typeof DetailProjectRoute
+  DetailTechRoute: typeof DetailTechRoute
+  DetailUserRoute: typeof DetailUserRoute
+}
+
+const DetailRouteChildren: DetailRouteChildren = {
+  DetailHackathonRoute: DetailHackathonRoute,
+  DetailOrganizationRoute: DetailOrganizationRoute,
+  DetailProjectRoute: DetailProjectRoute,
+  DetailTechRoute: DetailTechRoute,
+  DetailUserRoute: DetailUserRoute,
+}
+
+const DetailRouteWithChildren =
+  DetailRoute._addFileChildren(DetailRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DetailRoute: DetailRouteWithChildren,
   LoginRoute: LoginRoute,
 }
 export const routeTree = rootRouteImport

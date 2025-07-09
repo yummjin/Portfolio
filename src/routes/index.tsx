@@ -41,7 +41,7 @@ function App() {
   }, []);
 
   return (
-    <div className='absolute inset-0 flex size-full flex-col overflow-scroll'>
+    <div className='scrollbar-hide absolute inset-0 flex size-full flex-col overflow-scroll'>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoaded ? 1 : 0 }}
@@ -50,7 +50,7 @@ function App() {
         style={{ backgroundImage: `url(${Wallpaper1})` }}
       >
         <div className='m-auto flex h-full w-[345px] flex-col flex-wrap items-center gap-8 pt-[calc(44px+60px)] pb-20 md:grid md:w-[690px] md:grid-cols-2 lg:flex lg:w-[1020px] lg:flex-row'>
-          <Card noButton className='justify-between p-[30px]'>
+          <Card href={PATH.USER} noButton className='justify-between p-[30px]'>
             <img
               src={Profile}
               alt='profile'
@@ -64,7 +64,7 @@ function App() {
               <b>Frontend Developer</b>
             </div>
           </Card>
-          <Card noButton flex>
+          <Card href={PATH.TECH} noButton flex>
             <Card.Header
               icon={CodeIcon}
               title='기술'
@@ -81,7 +81,7 @@ function App() {
               </div>
             </div>
           </Card>
-          <Card flex>
+          <Card href={PATH.PROJECT} flex>
             <Card.Header
               icon={ProjectIcon}
               title='프로젝트'
@@ -108,7 +108,7 @@ function App() {
               </div>
             </div>
           </Card>
-          <Card>
+          <Card href={PATH.HACKATHON}>
             <Card.Header
               icon={HackathonIcon}
               title='해커톤'
@@ -135,7 +135,7 @@ function App() {
               ))}
             </div>
           </Card>
-          <Card flex>
+          <Card href={PATH.ORGANIZATION} flex>
             <Card.Header
               icon={OrganizationIcon}
               title='조직'
