@@ -89,6 +89,17 @@ export const PROJECTS = [
   },
 ];
 
+export const HACKATHONS = [
+  {
+    title: 'KHUTHON 2025',
+    description: '2025. 05. 09 ~ 2025. 05. 10',
+  },
+  {
+    title: '2025 us:code 해커톤 in 의성',
+    description: '2025. 06. 27 ~ 2025. 06. 29',
+  },
+];
+
 export const SHORTCUTS = [
   {
     title: 'Github',

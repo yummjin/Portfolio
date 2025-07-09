@@ -40,13 +40,15 @@ function CardHeader({
   description: string;
 }) {
   return (
-    <div className='flex h-fit w-full gap-[20px] overflow-hidden px-6 py-5'>
-      <img src={icon} className='size-[48px] flex-shrink-0 rounded-[11px]' />
-      <div className='flex flex-col'>
-        <span className='text-2xl font-semibold'>{title}</span>
-        <span className='text-nowrap text-ellipsis text-gray-500'>
-          {description}
-        </span>
+    <div className='flex h-fit w-full overflow-hidden px-3 py-2.5'>
+      <div className='flex h-fit w-full gap-[20px] rounded-[11px] px-3 py-2.5 transition duration-150 hover:bg-gray-400/20'>
+        <img src={icon} className='size-[48px] flex-shrink-0 rounded-[11px]' />
+        <div className='flex flex-col'>
+          <span className='text-2xl font-semibold'>{title}</span>
+          <span className='text-nowrap text-ellipsis text-gray-500'>
+            {description}
+          </span>
+        </div>
       </div>
     </div>
   );
@@ -58,15 +60,18 @@ function CardImageItem({ image }: { image: string }) {
 
 function CardLinkItem({ image, href }: { image: string; href: string }) {
   return (
-    <button
+    <motion.button
       className='cursor-pointer outline-none'
       onClick={() => window.open(href, '_blank')}
+      whileHover={{ scale: 1.04 }}
+      whileTap={{ scale: 1.04 }}
+      transition={{ duration: 0.2, ease: 'easeInOut' }}
     >
       <img
         src={image}
         className='shadow-tile size-full rounded-xl object-cover object-center'
       />
-    </button>
+    </motion.button>
   );
 }
 
@@ -84,7 +89,29 @@ function CardTextItem({
     </div>
   );
 }
+
+function CardCheckItem({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className='flex size-full items-start gap-2'>
+      <label className='custom-checkbox mt-1 w-7'>
+        <input type='checkbox' />
+        <span className='checkmark'></span>
+      </label>
+      <div className='flex flex-col'>
+        <p className='font-medium'>{title}</p>
+        <p className='text-sm font-light'>{description}</p>
+      </div>
+    </div>
+  );
+}
 Card.Header = CardHeader;
 Card.ImageItem = CardImageItem;
 Card.LinkItem = CardLinkItem;
 Card.TextItem = CardTextItem;
+Card.CheckItem = CardCheckItem;

@@ -1,8 +1,14 @@
 import { createFileRoute, redirect } from '@tanstack/react-router';
 
-import { PATH, PROJECTS, SHORTCUTS } from '@/shared/constants';
+import {
+  HACKATHONS,
+  PATH,
+  PROJECTS,
+  SHORTCUTS,
+  SKILLS,
+} from '@/shared/constants';
 import { getSession } from '@/shared/utils';
-import { Profile2, Wallpaper1 } from '@/assets/images';
+import { Profile, Wallpaper1 } from '@/assets/images';
 import {
   CodeIcon,
   HackathonIcon,
@@ -33,7 +39,7 @@ function App() {
         <div className='m-auto flex h-full w-[345px] flex-col flex-wrap items-center gap-8 pt-[calc(44px+60px)] pb-20 md:grid md:w-[690px] md:grid-cols-2 lg:flex lg:w-[1020px] lg:flex-row'>
           <Card className='justify-between p-[30px]'>
             <img
-              src={Profile2}
+              src={Profile}
               alt='profile'
               className='shadow-tile size-30 rounded-full object-cover'
             />
@@ -52,14 +58,14 @@ function App() {
               description='사용 기술 • 프레임워크'
             />
             <div className='grid flex-1 grid-cols-2 grid-rows-2 lg:grid-cols-4'>
-              <div className='size-full bg-red-500' />
-              <div className='size-full bg-orange-500' />
-              <div className='size-full bg-green-500' />
-              <div className='size-full bg-blue-500' />
-              <div className='size-full bg-blue-500' />
-              <div className='size-full bg-green-500' />
-              <div className='size-full bg-orange-500' />
-              <div className='size-full bg-red-500' />
+              {SKILLS.slice(0, 4).map(skill => (
+                <Card.ImageItem key={skill.title} image={skill.image} />
+              ))}
+              <div className='hidden lg:contents'>
+                {SKILLS.slice(4, 8).map(skill => (
+                  <Card.ImageItem key={skill.title} image={skill.image} />
+                ))}
+              </div>
             </div>
           </Card>
           <Card flex>
@@ -93,7 +99,15 @@ function App() {
               title='해커톤'
               description='참여한 대회 • 수상'
             />
-            <div className='grid flex-1 grid-cols-2 grid-rows-2 bg-white lg:grid-cols-4'></div>
+            <div className='grid flex-1 grid-cols-1 grid-rows-3 gap-2 divide-y-[1px] divide-gray-300 bg-white px-10 py-5'>
+              {HACKATHONS.map(hackathon => (
+                <Card.CheckItem
+                  key={hackathon.title}
+                  title={hackathon.title}
+                  description={hackathon.description}
+                />
+              ))}
+            </div>
           </Card>
           <Card hoverNone>
             <div className='grid size-full grid-cols-4 grid-rows-4 gap-4 px-6 py-5'>
