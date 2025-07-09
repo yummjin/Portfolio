@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className='sticky top-0 z-10 flex h-[44px] w-screen items-center justify-between bg-gray-100/40 px-4'>
       <Link
-        to={PATH.LOGIN}
+        to={PATH.HOME}
         className='flex cursor-pointer items-center gap-1 text-2xl font-bold outline-none'
       >
         <img src={Logo} alt='logo' className='size-6' />

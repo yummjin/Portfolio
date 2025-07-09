@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useNavigate } from '@tanstack/react-router';
 
 import type { ReactNode } from 'react';
 import { cn } from '@/shared/utils';
@@ -10,6 +11,7 @@ interface CardProps {
   children?: ReactNode;
   className?: string;
   noButton?: boolean;
+  href?: string;
 }
 
 export default function Card({
@@ -18,9 +20,13 @@ export default function Card({
   className,
   hoverNone,
   noButton = false,
+  href,
 }: CardProps) {
+  const navigate = useNavigate();
+
   return (
     <motion.div
+      onClick={() => href && navigate({ to: `/detail${href}` })}
       className={cn(
         'bg-tile-bg/90 shadow-tile relative h-[330px] w-[329px] flex-shrink-0 cursor-pointer overflow-hidden rounded-[11px] lg:min-w-[329px]',
         flex && 'lg:flex-1',
