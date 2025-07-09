@@ -7,6 +7,7 @@ import HackathonIcon from './icon-hackathon.svg';
 import OrganizationIcon from './icon-org.svg';
 import GithubIcon from './icon-github.svg';
 import VelogIcon from './icon-velog.svg';
+import ChevronLeftIcon from './icon-chevron-left.svg';
 
 export {
   Logo,
@@ -18,4 +19,5 @@ export {
   OrganizationIcon,
   GithubIcon,
   VelogIcon,
+  ChevronLeftIcon,
 };

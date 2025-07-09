@@ -17,7 +17,7 @@ import {
   OrganizationIcon,
   ProjectIcon,
 } from '@/assets/icons';
-import { Card } from '@/widgets/home/ui';
+import { Card, InfoSection } from '@/widgets/home/ui';
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -145,7 +145,9 @@ function App() {
           </Card>
         </div>
       </motion.div>
-      <div className='h-120 w-full flex-shrink-0 bg-white'></div>
+      <div className='w-full flex-shrink-0 bg-white'>
+        <InfoSection />
+      </div>
     </div>
   );
 }
