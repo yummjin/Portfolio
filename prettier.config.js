@@ -11,6 +11,7 @@ const config = {
   arrowParens: 'avoid',
   endOfLine: 'lf',
   plugins: ['prettier-plugin-tailwindcss'],
-}
+  exclude: ['routeTree.gen.ts'],
+};
 
-export default config
+export default config;
