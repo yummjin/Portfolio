@@ -1,4 +1,6 @@
 import { createFileRoute, redirect } from '@tanstack/react-router';
+import { useEffect, useState } from 'react';
+import { motion } from 'motion/react';
 
 import {
   HACKATHONS,
@@ -30,9 +32,20 @@ export const Route = createFileRoute('/')({
 });
 
 function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = Wallpaper1;
+    img.onload = () => setIsLoaded(true);
+  }, []);
+
   return (
     <div className='absolute inset-0 flex size-full flex-col overflow-scroll'>
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoaded ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
         className='h-fit w-full bg-cover bg-center'
         style={{ backgroundImage: `url(${Wallpaper1})` }}
       >
@@ -131,7 +144,7 @@ function App() {
             <div className='grid flex-1 grid-cols-2 grid-rows-2 bg-white lg:grid-cols-4'></div>
           </Card>
         </div>
-      </div>
+      </motion.div>
       <div className='h-120 w-full flex-shrink-0 bg-white'></div>
     </div>
   );
