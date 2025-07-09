@@ -74,16 +74,18 @@ function App() {
               title='프로젝트'
               description='참여한 프로젝트'
             />
-            <div className='grid flex-1 grid-cols-1 grid-rows-3 gap-2 divide-y-[1px] divide-gray-300 bg-white px-10 py-5 lg:grid-cols-2'>
-              {PROJECTS.slice(0, 3).map(project => (
-                <Card.TextItem
-                  key={project.title}
-                  title={project.title}
-                  description={project.description}
-                />
-              ))}
-              <div className='hidden lg:contents'>
-                {PROJECTS.slice(3, 6).map(project => (
+            <div className='flex-1 bg-white px-10 py-5'>
+              <div className='grid h-full grid-cols-1 grid-rows-3 gap-2 divide-y-[1px] divide-gray-300 lg:hidden'>
+                {PROJECTS.slice(0, 3).map(project => (
+                  <Card.TextItem
+                    key={project.title}
+                    title={project.title}
+                    description={project.description}
+                  />
+                ))}
+              </div>
+              <div className='hidden h-full grid-cols-2 grid-rows-3 gap-2 gap-x-6 divide-y-[1px] divide-gray-300 lg:grid'>
+                {PROJECTS.slice(0, 6).map(project => (
                   <Card.TextItem
                     key={project.title}
                     title={project.title}
