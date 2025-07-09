@@ -50,7 +50,7 @@ function App() {
         style={{ backgroundImage: `url(${Wallpaper1})` }}
       >
         <div className='m-auto flex h-full w-[345px] flex-col flex-wrap items-center gap-8 pt-[calc(44px+60px)] pb-20 md:grid md:w-[690px] md:grid-cols-2 lg:flex lg:w-[1020px] lg:flex-row'>
-          <Card className='justify-between p-[30px]'>
+          <Card noButton className='justify-between p-[30px]'>
             <img
               src={Profile}
               alt='profile'
@@ -64,7 +64,7 @@ function App() {
               <b>Frontend Developer</b>
             </div>
           </Card>
-          <Card flex>
+          <Card noButton flex>
             <Card.Header
               icon={CodeIcon}
               title='기술'
@@ -85,9 +85,9 @@ function App() {
             <Card.Header
               icon={ProjectIcon}
               title='프로젝트'
-              description='참여한 프로젝트'
+              description='참여한 프로젝트 • 클릭시 이동'
             />
-            <div className='flex-1 bg-white px-10 py-5'>
+            <div className='flex-1 bg-white px-14 py-5'>
               <div className='grid h-full grid-cols-1 grid-rows-3 gap-2 divide-y-[1px] divide-gray-300 lg:hidden'>
                 {PROJECTS.slice(0, 3).map(project => (
                   <Card.TextItem
@@ -124,7 +124,7 @@ function App() {
               ))}
             </div>
           </Card>
-          <Card hoverNone>
+          <Card noButton hoverNone>
             <div className='grid size-full grid-cols-4 grid-rows-4 gap-4 px-6 py-5'>
               {SHORTCUTS.map(shortcut => (
                 <Card.LinkItem

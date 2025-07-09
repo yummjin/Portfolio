@@ -8,6 +8,7 @@ import OrganizationIcon from './icon-org.svg';
 import GithubIcon from './icon-github.svg';
 import VelogIcon from './icon-velog.svg';
 import ChevronLeftIcon from './icon-chevron-left.svg';
+import MoreIcon from './icon-more.svg';
 
 export {
   Logo,
@@ -20,4 +21,5 @@ export {
   GithubIcon,
   VelogIcon,
   ChevronLeftIcon,
+  MoreIcon,
 };

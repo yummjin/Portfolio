@@ -48,43 +48,43 @@ export const SKILLS = [
 
 export const PROJECTS = [
   {
-    title: '기룡아 밥먹자',
+    title: '기룡아 밥먹자 : 식단 안내 사이트',
     description: '2024. 10. 20 ~ 2024. 11. 20',
     image: 'https://picsum.photos/200/300',
   },
   {
-    title: 'Saphy',
+    title: 'Saphy : 전자기기 중고거래 앱',
+    description: '2024. 05. 20 ~ 2024. 10. 31',
+    image: 'https://picsum.photos/200/300',
+  },
+  {
+    title: 'TeamPu : 팀프실 예약 서비스',
+    description: '2024. 11. 21 ~ 2024. 12. 15',
+    image: 'https://picsum.photos/200/300',
+  },
+  {
+    title: 'FestaMate : 축제 친구 매칭 웹앱',
+    description: '2025. 03. 09 ~ 2024. 05. 17',
+    image: 'https://picsum.photos/200/300',
+  },
+  {
+    title: 'Soup : 대학생 프로젝트 관리 플랫폼',
     description: '2024. 10. 20 ~ 2024. 11. 20',
     image: 'https://picsum.photos/200/300',
   },
   {
-    title: 'TeamPu',
-    description: '2024. 10. 20 ~ 2024. 11. 20',
-    image: 'https://picsum.photos/200/300',
-  },
-  {
-    title: 'FestaMate',
-    description: '2024. 10. 20 ~ 2024. 11. 20',
-    image: 'https://picsum.photos/200/300',
-  },
-  {
-    title: 'Soup',
-    description: '2024. 10. 20 ~ 2024. 11. 20',
-    image: 'https://picsum.photos/200/300',
-  },
-  {
-    title: 'Took!',
-    description: '2024. 10. 20 ~ 2024. 11. 20',
+    title: 'Took! : 전자투표 웹앱',
+    description: '2025. 06. 16 ~ 2024. 06. 27',
     image: 'https://picsum.photos/200/300',
   },
   {
     title: 'EmotionalCore',
-    description: '2024. 10. 20 ~ 2024. 11. 20',
+    description: '2025. 07. 05 ~ ',
     image: 'https://picsum.photos/200/300',
   },
   {
     title: 'Clab-Time',
-    description: '2024. 10. 20 ~ 2024. 11. 20',
+    description: '2025. 07. 17 ~ 2025. 07. 26(예정)',
     image: 'https://picsum.photos/200/300',
   },
 ];

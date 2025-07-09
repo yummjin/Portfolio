@@ -2,12 +2,14 @@ import { motion } from 'motion/react';
 
 import type { ReactNode } from 'react';
 import { cn } from '@/shared/utils';
+import { MoreIcon } from '@/assets/icons';
 
 interface CardProps {
   hoverNone?: boolean;
   flex?: boolean;
   children?: ReactNode;
   className?: string;
+  noButton?: boolean;
 }
 
 export default function Card({
@@ -15,16 +17,22 @@ export default function Card({
   children,
   className,
   hoverNone,
+  noButton = false,
 }: CardProps) {
   return (
     <motion.div
       className={cn(
-        'bg-tile-bg/90 shadow-tile h-[330px] w-[329px] flex-shrink-0 cursor-pointer overflow-hidden rounded-[11px] lg:min-w-[329px]',
+        'bg-tile-bg/90 shadow-tile relative h-[330px] w-[329px] flex-shrink-0 cursor-pointer overflow-hidden rounded-[11px] lg:min-w-[329px]',
         flex && 'lg:flex-1',
       )}
       whileHover={hoverNone ? {} : { scale: 1.02 }}
       transition={{ duration: 0.2, ease: 'easeInOut' }}
     >
+      {!noButton && (
+        <button className='absolute bottom-4 left-4 cursor-pointer rounded-[11px] p-2 transition duration-150 outline-none hover:bg-gray-400/20'>
+          <img src={MoreIcon} className='size-4' />
+        </button>
+      )}
       <div className={cn('flex size-full flex-col', className)}>{children}</div>
     </motion.div>
   );
