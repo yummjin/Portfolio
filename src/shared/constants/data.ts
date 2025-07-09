@@ -1,4 +1,50 @@
 import { GithubIcon, VelogIcon } from '@/assets/icons';
+import {
+  Dart,
+  Flutter,
+  Git,
+  Javascript,
+  Next,
+  React,
+  Tailwind,
+  Typescript,
+} from '@/assets/images';
+
+export const SKILLS = [
+  {
+    title: 'TypeScript',
+    image: Typescript,
+  },
+  {
+    title: 'React',
+    image: React,
+  },
+  {
+    title: 'Next.js',
+    image: Next,
+  },
+  {
+    title: 'Tailwind CSS',
+    image: Tailwind,
+  },
+  {
+    title: 'JavaScript',
+    image: Javascript,
+  },
+  {
+    title: 'Git',
+    image: Git,
+  },
+
+  {
+    title: 'Dart',
+    image: Dart,
+  },
+  {
+    title: 'Flutter',
+    image: Flutter,
+  },
+];
 
 export const PROJECTS = [
   {
