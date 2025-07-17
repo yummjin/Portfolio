@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { Fragment } from 'react/jsx-runtime';
 import { cn } from '@/shared/utils';
 
 interface TechItemProps {
@@ -32,22 +31,22 @@ export default function TechItem({
             className={cn(
               'rounded-lg px-2 py-1 text-white',
               level === '상' && 'bg-blue-500',
-              level === '중' && 'bg-green-500',
-              level === '하' && 'bg-yellow-500',
+              level === '중' && 'bg-yellow-500',
+              level === '하' && 'bg-gray-500',
             )}
           >
             {level}
           </span>
         </div>
       </div>
-      <p>
+      <ul className='overflow-hidden text-gray-700'>
         {description.split('\n').map((line, i) => (
-          <Fragment key={i}>
+          <li key={i} className='flex items-center gap-2 truncate'>
+            <div className='size-1 flex-shrink-0 rounded-full bg-gray-600' />{' '}
             {line}
-            <br />
-          </Fragment>
+          </li>
         ))}
-      </p>
+      </ul>
     </motion.div>
   );
 }
